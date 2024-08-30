@@ -15,3 +15,14 @@ vector<ChatMessage> Chat::getMessages() const {
 void Chat::receiveMessage(const ChatMessage& msg) {
     messages.push_back(msg);
 }
+
+void Chat::printUsers() const {
+    for(auto u : users) {
+        cout << u->getName() << endl;
+    }
+}
+void Chat::printMessages() const {
+    for(auto& m : messages) {
+        cout << endl << m.from << ": " << m.text << endl;
+    }
+}

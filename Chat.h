@@ -2,6 +2,7 @@
 #define LAB_11_CHAT_CHAT_H
 
 #include <vector>
+#include <iostream>
 #include "User.h"
 #include "ChatMessage.h"
 
@@ -12,7 +13,12 @@ public:
 
     vector<User*> getUsers() const;
     vector<ChatMessage> getMessages() const;
+
     void receiveMessage(const ChatMessage& msg);
+
+    // visual methods
+    void printUsers() const;
+    void printMessages() const;
 
 protected:
     vector<User*> users;

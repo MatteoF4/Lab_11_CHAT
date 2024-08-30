@@ -8,6 +8,5 @@ add_executable(Lab_11_CHAT main.cpp
         User.h
         Chat.cpp
         Chat.h
-        UserManager.cpp
-        UserManager.h
-        ChatMessage.h)
+        ChatMessage.h
+        ChatRegister.h)
