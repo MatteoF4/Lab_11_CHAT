@@ -12,7 +12,10 @@ vector<ChatMessage> Chat::getMessages() const {
     return messages;
 }
 
-void Chat::receiveMessage(const ChatMessage& msg) {
+void Chat::sendMessage(const string &text, const User& from) {
+    User to = (from.getNumber() == userA.getNumber()) ?
+            userB : userA;
+    ChatMessage msg(from, to, text);
     messages.push_back(msg);
 }
 

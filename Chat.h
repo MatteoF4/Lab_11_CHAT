@@ -15,7 +15,7 @@ public:
     User& getUserB();
     vector<ChatMessage> getMessages() const;
 
-    void receiveMessage(const ChatMessage& msg);
+    void sendMessage(const string& text, const User& from);
 
     // visual methods
     void printUsers() const;
