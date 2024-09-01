@@ -1,12 +1,12 @@
 #include "Chat.h"
 
-Chat::Chat(User *a, User *b) {
-    users.push_back(a);
-    users.push_back(b);
-}
+Chat::Chat(const User& a, const User& b) : userA(a), userB(b) {}
 
-vector<User *> Chat::getUsers() const {
-    return users;
+User& Chat::getUserA() {
+    return userA;
+}
+User& Chat::getUserB() {
+    return userB;
 }
 vector<ChatMessage> Chat::getMessages() const {
     return messages;
@@ -17,12 +17,10 @@ void Chat::receiveMessage(const ChatMessage& msg) {
 }
 
 void Chat::printUsers() const {
-    for(auto u : users) {
-        cout << u->getName() << endl;
-    }
+    cout << userA.getName() << " - " << userB.getName() << endl;
 }
 void Chat::printMessages() const {
     for(auto& m : messages) {
-        cout << endl << m.from << ": " << m.text << endl;
+        cout << endl << m.getFrom().getName() << ": " << m.getText() << endl;
     }
 }

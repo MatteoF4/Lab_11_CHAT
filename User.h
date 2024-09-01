@@ -2,20 +2,20 @@
 #define LAB_11_CHAT_USER_H
 
 #include <string>
-#include "ChatMessage.h"
-#include "Chat.h"
 
 using namespace std;
 class User {
 public:
-    explicit User(string  n);
+    explicit User(string  n, int num);
 
     string getName() const;
-
-    void sendMessage(const string& text, Chat& chat) const;
+    int getNumber() const;
+    void changeName(const string& n);
+    void changeNumber(int num);
 
 protected:
     string name;
+    int number;
 };
 
 

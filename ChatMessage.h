@@ -2,17 +2,22 @@
 #define LAB_11_CHAT_CHATMESSAGE_H
 
 #include <string>
-#include <utility>
+#include "User.h"
 
 using namespace std;
 class ChatMessage {
 public:
-    ChatMessage(string f, string t, string txt) : from(std::move(f)),
-        to(std::move(t)), text(std::move(txt)) {}
+    ChatMessage(const User& f, const User& t, string txt);
 
-//protected:
-    string from;
-    string to;
+    User getFrom() const;
+    User getTo() const;
+    string getText() const;
+
+    bool isRead() const;
+    void setAsRead();
+protected:
+    User from;
+    User to;
     string text;
     bool read = false;
 };

@@ -9,9 +9,10 @@
 using namespace std;
 class Chat {
 public:
-    Chat(User* a, User* b);
+    Chat(const User& a, const User& b);
 
-    vector<User*> getUsers() const;
+    User& getUserA();
+    User& getUserB();
     vector<ChatMessage> getMessages() const;
 
     void receiveMessage(const ChatMessage& msg);
@@ -21,7 +22,8 @@ public:
     void printMessages() const;
 
 protected:
-    vector<User*> users;
+    User userA;
+    User userB;
     vector<ChatMessage> messages = {};
 };
 
