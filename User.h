@@ -6,16 +6,16 @@
 using namespace std;
 class User {
 public:
-    explicit User(string  n, int num);
+    explicit User(string  n, string num);
 
     string getName() const;
-    int getNumber() const;
+    string getNumber() const;
     void changeName(const string& n);
     void changeNumber(int num);
 
 protected:
     string name;
-    int number;
+    string number;
 };
 
 

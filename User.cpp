@@ -2,12 +2,12 @@
 
 #include <utility>
 
-User::User(string  n, int num) : name(std::move(n)), number(num) {}
+User::User(string  n, string num) : name(std::move(n)), number(std::move(num)) {}
 
 string User::getName() const {
     return name;
 }
-int User::getNumber() const {
+string User::getNumber() const {
     return number;
 }
 void User::changeName(const string& n) {
