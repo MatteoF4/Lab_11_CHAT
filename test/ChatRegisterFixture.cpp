@@ -29,6 +29,7 @@ TEST_F(ChatRegisterFixture, AddChat) {
 
 TEST_F(ChatRegisterFixture, GetNonExistingChat) {
     EXPECT_THROW(cr.getChat(b, c), out_of_range);
+    EXPECT_THROW(cr.getChat(c, b), out_of_range);
 }
 
 TEST_F(ChatRegisterFixture, RemoveChat) {
@@ -38,4 +39,12 @@ TEST_F(ChatRegisterFixture, RemoveChat) {
 
 TEST_F(ChatRegisterFixture, RemoveNonExistingChat) {
     EXPECT_THROW(cr.removeChat(b, c), logic_error);
+}
+
+TEST_F(ChatRegisterFixture, ReverseGetChat) {
+    EXPECT_NO_THROW(cr.getChat(a, b));
+    EXPECT_NO_THROW(cr.getChat(b, a));
+
+    EXPECT_NO_THROW(cr.getChat(a, c));
+    EXPECT_NO_THROW(cr.getChat(c, a));
 }
