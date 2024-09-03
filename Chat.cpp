@@ -18,12 +18,3 @@ void Chat::sendMessage(const string &text, const User& from) {
     ChatMessage msg(from, to, text);
     messages.push_back(msg);
 }
-
-void Chat::printUsers() const {
-    cout << userA.getName() << " - " << userB.getName() << endl;
-}
-void Chat::printMessages() const {
-    for(auto& m : messages) {
-        cout << endl << m.getFrom().getName() << ": " << m.getText() << endl;
-    }
-}

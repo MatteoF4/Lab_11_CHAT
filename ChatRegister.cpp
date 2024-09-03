@@ -5,14 +5,16 @@ void ChatRegister::addChat(const User &user1, const User &user2) {
     auto key = make_pair(user1.getNumber(), user2.getNumber());
     if(chats.find(key) == chats.end())
         chats.insert({key, Chat(user1, user2)});
-    else; // cerr << "chat already exists" << endl;
+    else
+        throw logic_error("can't add a chat that already exists");
 }
 
 void ChatRegister::removeChat(const User &user1, const User &user2) {
     auto key = make_pair(user1.getNumber(), user2.getNumber());
     if(!(chats.find(key) == chats.end()))
         chats.erase(key);
-    else; // cerr << "the chat doesn't exist, it can't be deleted" << endl;
+    else
+        throw out_of_range("can't remove non existing chat");
 }
 
 Chat& ChatRegister::getChat(const User &user1, const User &user2) {
@@ -20,16 +22,10 @@ Chat& ChatRegister::getChat(const User &user1, const User &user2) {
     if(chats.find(key) != chats.end())
         return chats.at(key);
     else
-        throw out_of_range("the chat does not exist");
+        throw out_of_range("can't retrieve non existing chat");
 }
 
 map<pair<string, string>, Chat> ChatRegister::getChats() const {
     return chats;
 }
 
-
-void ChatRegister::printChats() const {
-    for(const auto& c : chats) {
-        cout << c.first.first << " - " << c.first.second << endl;
-    }
-}

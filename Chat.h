@@ -17,10 +17,6 @@ public:
 
     void sendMessage(const string& text, const User& from);
 
-    // visual methods
-    void printUsers() const;
-    void printMessages() const;
-
 protected:
     User userA;
     User userB;

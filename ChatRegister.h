@@ -14,9 +14,6 @@ public:
 
     map<pair<string, string>, Chat> getChats() const;
 
-    // visual methods
-    void printChats() const;
-
 protected:
     map<pair<string, string>, Chat> chats = {};
 };
