@@ -13,7 +13,7 @@ TEST(Chat, Constructor) {
     EXPECT_EQ(c.getUserB().getNumber(), "2");
 }
 
-TEST(Chat, sendMessage) {
+TEST(Chat, SendMessage) {
     User a("Alberto", "1");
     User b("Bruno", "2");
 
@@ -28,4 +28,19 @@ TEST(Chat, sendMessage) {
     EXPECT_EQ(msg.getText(), "ciao");
     EXPECT_EQ(msg.getFrom().getNumber(), "1");
     EXPECT_EQ(msg.getTo().getNumber(), "2");
+}
+
+TEST(Chat, EqualConfront) {
+    User a("Alberto", "1");
+    User b("Bruno", "2");
+
+    Chat c1(a, b);
+
+    User d("Diana", "3");
+    User e("Elena", "4");
+
+    Chat c2(d, e);
+
+    EXPECT_FALSE(c1 == c2);
+    EXPECT_TRUE(c1 == c1);
 }

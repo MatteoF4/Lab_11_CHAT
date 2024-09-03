@@ -7,19 +7,22 @@
 using namespace std;
 class ChatMessage {
 public:
-    ChatMessage(const User& f, const User& t, string txt);
+    ChatMessage(User  f, User  t, string txt, bool r = false);
 
-    User getFrom() const;
-    User getTo() const;
-    string getText() const;
+    [[nodiscard]] User getFrom() const;
+    [[nodiscard]] User getTo() const;
+    [[nodiscard]] string getText() const;
 
-    bool isRead() const;
+    [[nodiscard]] bool isRead() const;
     void setAsRead();
+
+    bool operator==(const ChatMessage& right) const;
+
 protected:
     User from;
     User to;
     string text;
-    bool read = false;
+    bool read;
 };
 
 #endif

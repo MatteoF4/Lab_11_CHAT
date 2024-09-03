@@ -1,6 +1,8 @@
 #include "Chat.h"
 
-Chat::Chat(const User& a, const User& b) : userA(a), userB(b) {}
+#include <utility>
+
+Chat::Chat(User  a, User  b) : userA(std::move(a)), userB(std::move(b)) {}
 
 User& Chat::getUserA() {
     return userA;
@@ -17,4 +19,13 @@ void Chat::sendMessage(const string &text, const User& from) {
             userB : userA;
     ChatMessage msg(from, to, text);
     messages.push_back(msg);
+}
+
+bool Chat::operator==(const Chat &right) const {
+    bool result = false;
+    if(this->userA == right.userA
+        and this->userB == right.userB
+        and this->messages == right.messages)
+        result = true;
+    return result;
 }

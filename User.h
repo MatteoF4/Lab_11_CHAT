@@ -8,10 +8,12 @@ class User {
 public:
     explicit User(string  n, string num);
 
-    string getName() const;
-    string getNumber() const;
+    [[nodiscard]] string getName() const;
+    [[nodiscard]] string getNumber() const;
     void changeName(const string& n);
     void changeNumber(const string& num);
+
+    bool operator==(const User& right) const;
 
 protected:
     string name;

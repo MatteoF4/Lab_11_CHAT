@@ -29,3 +29,14 @@ TEST_F(ChatMessageFixture, ReadAlreadyReadMessage) {
     c.setAsRead();
     EXPECT_THROW(c.setAsRead(), logic_error);
 }
+
+TEST_F(ChatMessageFixture, EqualConfront) {
+    ChatMessage c1(f, t, "ciao");
+    EXPECT_TRUE(c == c1);
+
+    ChatMessage c2(f, t, "hello");
+    EXPECT_FALSE(c == c2);
+
+    ChatMessage c3(t, f, "ciao");
+    EXPECT_FALSE(c == c3);
+}

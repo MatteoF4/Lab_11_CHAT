@@ -12,6 +12,7 @@ public:
     void removeChat(const User& user1, const User& user2);
     Chat& getChat(const User& userA, const User& userB);
 
+    [[nodiscard]]
     map<pair<string, string>, Chat> getChats() const;
 
 protected:

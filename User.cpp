@@ -16,3 +16,10 @@ void User::changeName(const string& n) {
 void User::changeNumber(const string& num) {
     number = num;
 }
+
+bool User::operator==(const User &right) const {
+    bool result = false;
+    if(this->name == right.name and this->number == right.number)
+        result = true;
+    return result;
+}
