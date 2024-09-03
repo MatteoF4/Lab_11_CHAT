@@ -14,7 +14,7 @@ void ChatRegister::removeChat(const User &user1, const User &user2) {
     if(!(chats.find(key) == chats.end()))
         chats.erase(key);
     else
-        throw out_of_range("can't remove non existing chat");
+        throw out_of_range("can't remove non-existing chat");
 }
 
 Chat& ChatRegister::getChat(const User &user1, const User &user2) {
@@ -22,7 +22,7 @@ Chat& ChatRegister::getChat(const User &user1, const User &user2) {
     if(chats.find(key) != chats.end())
         return chats.at(key);
     else
-        throw out_of_range("can't retrieve non existing chat");
+        throw out_of_range("can't retrieve non-existing chat");
 }
 
 map<pair<string, string>, Chat> ChatRegister::getChats() const {

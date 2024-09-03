@@ -37,5 +37,5 @@ TEST_F(ChatRegisterFixture, RemoveChat) {
 }
 
 TEST_F(ChatRegisterFixture, RemoveNonExistingChat) {
-    EXPECT_THROW(cr.removeChat(a, b), logic_error);
+    EXPECT_THROW(cr.removeChat(b, c), logic_error);
 }
