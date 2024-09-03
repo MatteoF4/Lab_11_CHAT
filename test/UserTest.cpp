@@ -3,8 +3,18 @@
 #include "../User.h"
 
 TEST(User, Constructor) {
-    User u("Giorgio", "3671119852");
+    User u("Alberto", "1");
 
-    EXPECT_EQ(u.getName(), "Giorgio");
-    EXPECT_EQ(u.getNumber(), "3671119852");
+    EXPECT_EQ(u.getName(), "Alberto");
+    EXPECT_EQ(u.getNumber(), "1");
+}
+
+TEST(User, Setters) {
+    User u("Bruno", "2");
+
+    u.changeName("Alberto");
+    EXPECT_EQ(u.getName(), "Alberto");
+
+    u.changeNumber("1");
+    EXPECT_EQ(u.getNumber(), "1");
 }

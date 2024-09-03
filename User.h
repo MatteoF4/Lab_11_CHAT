@@ -11,7 +11,7 @@ public:
     string getName() const;
     string getNumber() const;
     void changeName(const string& n);
-    void changeNumber(int num);
+    void changeNumber(const string& num);
 
 protected:
     string name;

@@ -1,3 +1,4 @@
+#include <stdexcept>
 #include "ChatMessage.h"
 
 ChatMessage::ChatMessage(const User &f, const User &t, std::string txt) : from(f),
@@ -19,5 +20,6 @@ bool ChatMessage::isRead() const {
 void ChatMessage::setAsRead() {
     if(!read)
         read = true;
-    else; // cerr << "the message was already read" << endl;
+    else
+        throw logic_error("the message was already read");
 }

@@ -13,6 +13,6 @@ string User::getNumber() const {
 void User::changeName(const string& n) {
     name = n;
 }
-void User::changeNumber(int num) {
+void User::changeNumber(const string& num) {
     number = num;
 }
