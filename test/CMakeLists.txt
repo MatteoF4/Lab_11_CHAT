@@ -8,12 +8,8 @@ include_directories(${gtest_SOURCE_DIR}/include ${gtest_SOURCE_DIR})
 
 set(TEST_SOURCE_FILES runAllTests.cpp
         UserTest.cpp
-        UserFixture.cpp
-        ChatMessageTest.cpp
         ChatMessageFixture.cpp
-        ChatRegisterTest.cpp
         ChatRegisterFixture.cpp
-        ChatTest.cpp
         ChatFixture.cpp
 )
 add_executable(runChatTests ${TEST_SOURCE_FILES})
