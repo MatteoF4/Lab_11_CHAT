@@ -1,9 +1,9 @@
 /*
  * TODO LIST
  * - tempo d'invio per messaggi
- * - observer pattern per notifiche messaggi
+ * - observer pattern per notificare gli utenti
  * - editing messaggi
- * - aggiungere i gruppi
+ * - gruppi
  * -
  * FIXME LIST
  * - [far sì che i numeri dei vari utenti siano unici]

@@ -23,7 +23,7 @@ public:
 protected:
     User userA;
     User userB;
-    vector<ChatMessage> messages = {};
+    vector<ChatMessage> messages = {}; // TODO messaggi non letti
 };
 
 

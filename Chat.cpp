@@ -15,6 +15,8 @@ vector<ChatMessage> Chat::getMessages() const {
 }
 
 void Chat::sendMessage(const string &text, const User& from) {
+    if(!(from == this->userA or from == this->userB))
+        throw invalid_argument("can't send a message from a User which is not part of the Chat");
     User to = (from.getNumber() == userA.getNumber()) ?
             userB : userA;
     ChatMessage msg(from, to, text);
