@@ -28,7 +28,7 @@ TEST_F(ChatFixture, SendMessage) {
 
     ASSERT_EQ(c.getMessages().size(), 1);
 
-    ChatMessage msg = c.getMessages()[0];
+    Message msg = c.getMessages()[0];
 
     EXPECT_EQ(msg.getText(), "ciao");
     EXPECT_EQ(msg.getFrom().getNumber(), "1");
@@ -37,6 +37,22 @@ TEST_F(ChatFixture, SendMessage) {
 
 TEST_F(ChatFixture, WrongUserSendsMessage) {
     EXPECT_THROW(c.sendMessage("ciao", d), invalid_argument);
+}
+
+TEST_F(ChatFixture, ReadMessage) {
+    c.sendMessage("ciao", b);
+    EXPECT_FALSE(c.getMessages()[0].isRead());
+    c.readMessage(c.getMessages()[0]);
+    EXPECT_TRUE(c.getMessages()[0].isRead());
+    EXPECT_EQ(c.getUnreadMessages().size(), 0);
+}
+
+TEST_F(ChatFixture, ReadAllMessages) {
+    c.sendMessage("ciao", b);
+    c.sendMessage("ciao", a);
+    ASSERT_EQ(c.getUnreadMessages().size(), 2);
+    c.readAllMessages();
+    EXPECT_EQ(c.getUnreadMessages().size(), 0);
 }
 
 TEST_F(ChatFixture, EqualConfront) {

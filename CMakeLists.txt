@@ -12,9 +12,9 @@ set(SOURCE_FILES
         User.h
         Chat.cpp
         Chat.h
-        ChatMessage.h
+        Message.h
         ChatRegister.h
-        ChatMessage.cpp
+        Message.cpp
         ChatRegister.cpp)
 
 add_library(${CMAKE_PROJECT_NAME}_lib ${SOURCE_FILES})

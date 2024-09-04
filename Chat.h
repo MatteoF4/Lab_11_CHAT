@@ -4,7 +4,7 @@
 #include <vector>
 #include <iostream>
 #include "User.h"
-#include "ChatMessage.h"
+#include "Message.h"
 
 using namespace std;
 class Chat {
@@ -13,17 +13,19 @@ public:
 
     User& getUserA();
     User& getUserB();
-    [[nodiscard]]
-    vector<ChatMessage> getMessages() const;
+    [[nodiscard]] vector<Message> getMessages() const;
+    [[nodiscard]] vector<Message> getUnreadMessages() const;
 
     void sendMessage(const string& text, const User& from);
+    void readMessage(const Message& msg);
+    void readAllMessages();
 
     bool operator==(const Chat& right) const;
 
 protected:
     User userA;
     User userB;
-    vector<ChatMessage> messages = {}; // TODO messaggi non letti
+    vector<Message> messages = {};
 };
 
 

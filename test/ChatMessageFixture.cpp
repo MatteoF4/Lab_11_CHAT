@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
 
-#include "../ChatMessage.h"
+#include "../Message.h"
 
 class ChatMessageFixture : public ::testing::Test {
 protected:
@@ -12,7 +12,7 @@ protected:
 
     User f;
     User t;
-    ChatMessage c;
+    Message c;
 };
 
 TEST_F(ChatMessageFixture, Constructor) {
@@ -31,12 +31,12 @@ TEST_F(ChatMessageFixture, ReadAlreadyReadMessage) {
 }
 
 TEST_F(ChatMessageFixture, EqualConfront) {
-    ChatMessage c1(f, t, "ciao");
+    Message c1(f, t, "ciao");
     EXPECT_TRUE(c == c1);
 
-    ChatMessage c2(f, t, "hello");
+    Message c2(f, t, "hello");
     EXPECT_FALSE(c == c2);
 
-    ChatMessage c3(t, f, "ciao");
+    Message c3(t, f, "ciao");
     EXPECT_FALSE(c == c3);
 }

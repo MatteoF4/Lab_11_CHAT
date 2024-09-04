@@ -1,13 +1,13 @@
-#ifndef LAB_11_CHAT_CHATMESSAGE_H
-#define LAB_11_CHAT_CHATMESSAGE_H
+#ifndef LAB_11_CHAT_MESSAGE_H
+#define LAB_11_CHAT_MESSAGE_H
 
 #include <string>
 #include "User.h"
 
 using namespace std;
-class ChatMessage {
+class Message {
 public:
-    ChatMessage(User  f, User  t, string txt, bool r = false);
+    Message(User  f, User  t, string txt, bool r = false);
 
     [[nodiscard]] User getFrom() const;
     [[nodiscard]] User getTo() const;
@@ -16,7 +16,7 @@ public:
     [[nodiscard]] bool isRead() const;
     void setAsRead();
 
-    bool operator==(const ChatMessage& right) const;
+    bool operator==(const Message& right) const;
 
 protected:
     User from;
